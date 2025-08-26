@@ -80,3 +80,8 @@ C:\Users\haido\millennium-economic-analysis>
 [用户提供了目录列表截图，显示项目文件都在正确位置]
 
 [用户尝试git add .命令，出现错误：fatal: not a git repository (or any of the parent directories): .git]
+
+[用户执行了git操作，显示文件已添加，但推送时出现错误：
+- error: src refspec main does not match any
+- error: failed to push some refs to 'origin'
+- error: failed to push some refs to 'https://github.com/EastAndWeast/millennium-economic-analysis.git']
