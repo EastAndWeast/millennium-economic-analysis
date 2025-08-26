@@ -46,7 +46,7 @@
 ## 🚀 快速开始
 
 ### 在线体验
-直接访问：[在线演示地址](https://your-username.github.io/millennium-economic-analysis)
+直接访问：[在线演示地址](https://eastandweast.github.io/millennium-economic-analysis/)
 
 ### 本地运行
 ```bash
