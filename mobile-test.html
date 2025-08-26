@@ -70,50 +70,25 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <!-- 功能测试区域 -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- 数据导出测试 -->
+            <!-- 移动端布局测试 -->
             <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">📊 数据导出功能测试</h3>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">📱 移动端布局测试</h3>
                 <div class="space-y-4">
                     <div class="bg-gray-50 p-4 rounded-lg">
-                        <h4 class="font-medium text-gray-900 mb-2">测试数据</h4>
-                        <table class="w-full text-sm">
-                            <thead>
-                                <tr class="border-b">
-                                    <th class="text-left py-2">年份</th>
-                                    <th class="text-left py-2">房价</th>
-                                    <th class="text-left py-2">股市</th>
-                                    <th class="text-left py-2">黄金</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="border-b">
-                                    <td class="py-2">2008</td>
-                                    <td class="py-2">100</td>
-                                    <td class="py-2">100</td>
-                                    <td class="py-2">100</td>
-                                </tr>
-                                <tr class="border-b">
-                                    <td class="py-2">2009</td>
-                                    <td class="py-2">85</td>
-                                    <td class="py-2">65</td>
-                                    <td class="py-2">120</td>
-                                </tr>
-                                <tr>
-                                    <td class="py-2">2010</td>
-                                    <td class="py-2">90</td>
-                                    <td class="py-2">85</td>
-                                    <td class="py-2">115</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <h4 class="font-medium text-gray-900 mb-2">响应式网格</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-blue-100 p-3 rounded text-center text-sm">网格1</div>
+                            <div class="bg-green-100 p-3 rounded text-center text-sm">网格2</div>
+                            <div class="bg-yellow-100 p-3 rounded text-center text-sm">网格3</div>
+                        </div>
                     </div>
                     <div class="text-sm text-gray-600">
                         <p>✅ 测试项目：</p>
                         <ul class="list-disc list-inside mt-2 space-y-1">
-                            <li>JSON格式导出</li>
-                            <li>CSV格式导出</li>
-                            <li>Excel格式导出</li>
-                            <li>图片格式导出</li>
+                            <li>响应式网格布局</li>
+                            <li>字体大小自适应</li>
+                            <li>间距自动调整</li>
+                            <li>内容重排优化</li>
                         </ul>
                     </div>
                 </div>
@@ -236,7 +211,7 @@
     <script src="js/charts.js"></script>
     <script src="js/comparison.js"></script>
     <script src="js/interactions.js"></script>
-    <script src="js/data-export.js"></script>
+
     <script src="js/mobile-interactions.js"></script>
 
     <!-- 测试脚本 -->
@@ -250,17 +225,17 @@
             const isMobile = window.mobileInteractionManager?.isMobile;
             results.push(`✅ 移动端检测: ${isMobile ? '是' : '否'} (屏幕宽度: ${window.innerWidth}px)`);
 
-            // 测试2: 检查数据导出管理器
-            const hasExportManager = !!window.dataExportManager;
-            results.push(`${hasExportManager ? '✅' : '❌'} 数据导出管理器: ${hasExportManager ? '已加载' : '未加载'}`);
+            // 测试2: 检查移动端CSS
+            const mobileCSS = document.querySelector('link[href="css/mobile-responsive.css"]');
+            results.push(`${mobileCSS ? '✅' : '❌'} 移动端CSS: ${mobileCSS ? '已加载' : '未加载'}`);
 
             // 测试3: 检查图表管理器
             const hasChartManager = !!window.chartManager;
             results.push(`${hasChartManager ? '✅' : '❌'} 图表管理器: ${hasChartManager ? '已加载' : '未加载'}`);
 
-            // 测试4: 检查CSS加载
-            const mobileCSS = document.querySelector('link[href="css/mobile-responsive.css"]');
-            results.push(`${mobileCSS ? '✅' : '❌'} 移动端CSS: ${mobileCSS ? '已加载' : '未加载'}`);
+            // 测试4: 检查核心模块
+            const hasCoreModule = !!window.AppData;
+            results.push(`${hasCoreModule ? '✅' : '❌'} 核心模块: ${hasCoreModule ? '已加载' : '未加载'}`);
 
             // 测试5: 检查触摸支持
             const hasTouch = 'ontouchstart' in window;

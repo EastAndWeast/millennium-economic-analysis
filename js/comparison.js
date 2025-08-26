@@ -219,11 +219,7 @@ class ComparisonManager {
         const bottomButtons = document.querySelectorAll('.flex.justify-center button');
         bottomButtons.forEach(button => {
             const text = button.textContent.trim();
-            if (text === '导出对比报告') {
-                button.addEventListener('click', () => this.exportReport());
-            } else if (text === '保存对比结果') {
-                button.addEventListener('click', () => this.saveComparison());
-            } else if (text === '分享对比链接') {
+            if (text === '分享对比链接') {
                 button.addEventListener('click', () => this.shareComparison());
             }
         });
@@ -356,33 +352,7 @@ class ComparisonManager {
         // 当前保持静态内容，实际项目中可以基于数据动态生成
     }
     
-    exportReport() {
-        const reportData = {
-            years: this.selectedYears,
-            data: this.selectedYears.map(year => this.comparisonData[year]),
-            timestamp: new Date().toISOString()
-        };
-        
-        const blob = new Blob([JSON.stringify(reportData, null, 2)], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `年份对比报告_${this.selectedYears.join('vs')}.json`;
-        a.click();
-        URL.revokeObjectURL(url);
-        
-        FeedbackSystem.showSuccess('对比报告已导出');
-    }
-    
-    saveComparison() {
-        const comparisonState = {
-            selectedYears: this.selectedYears,
-            timestamp: new Date().toISOString()
-        };
-        
-        localStorage.setItem('savedComparison', JSON.stringify(comparisonState));
-        FeedbackSystem.showSuccess('对比结果已保存到本地');
-    }
+
     
     shareComparison() {
         const shareUrl = `${window.location.origin}${window.location.pathname}?compare=${this.selectedYears.join(',')}`;
