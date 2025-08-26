@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>年份对比 - 千年经济分析系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'finance-blue': '#1e40af',
+                        'finance-gold': '#f59e0b',
+                        'finance-green': '#059669',
+                        'finance-red': '#dc2626',
+                        'finance-gray': '#374151'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <script src="js/core.js"></script>
+    <!-- 顶部导航栏 -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-finance-blue">千年经济分析</h1>
+                    </div>
+                    <nav class="hidden md:ml-8 md:flex md:space-x-8">
+                        <a href="index.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">首页</a>
+                        <a href="历史分析页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">历史分析</a>
+                        <a href="经济因子页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">经济因子</a>
+                        <a href="分析结果页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">分析结果</a>
+                        <a href="年份对比页面.html" class="text-finance-blue border-b-2 border-finance-blue px-1 pt-1 pb-4 text-sm font-medium">年份对比</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-finance-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
+                        用户中心
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 对比控制面板 -->
+    <div class="bg-white border-b border-gray-200 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-4">
+                <h2 class="text-xl font-semibold text-gray-900 mb-2">时光对话，智慧碰撞</h2>
+                <p class="text-gray-600">通过年份对比功能，发现历史规律，预测未来趋势</p>
+            </div>
+            
+            <!-- 对比年份选择器 -->
+            <div class="grid grid-cols-4 gap-4 mb-6">
+                <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg border-2 border-blue-200">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-medium text-blue-900">对比年份 1</span>
+                        <button class="text-blue-600 hover:text-blue-800">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <select class="w-full border border-blue-300 rounded-md px-3 py-2 text-sm bg-white">
+                        <option>1348年 - 黑死病</option>
+                        <option>1492年 - 地理大发现</option>
+                        <option>1929年 - 大萧条</option>
+                        <option>2008年 - 金融危机</option>
+                    </select>
+                </div>
+                
+                <div class="bg-gradient-to-r from-red-50 to-red-100 p-4 rounded-lg border-2 border-red-200">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-sm font-medium text-red-900">对比年份 2</span>
+                        <button class="text-red-600 hover:text-red-800">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <select class="w-full border border-red-300 rounded-md px-3 py-2 text-sm bg-white">
+                        <option>2008年 - 金融危机</option>
+                        <option>1348年 - 黑死病</option>
+                        <option>1492年 - 地理大发现</option>
+                        <option>1929年 - 大萧条</option>
+                    </select>
+                </div>
+                
+                <div class="bg-gray-50 p-4 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
+                    <button class="text-gray-500 hover:text-gray-700 flex flex-col items-center">
+                        <svg class="w-8 h-8 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                        </svg>
+                        <span class="text-sm">添加对比</span>
+                    </button>
+                </div>
+                
+                <div class="bg-gray-50 p-4 rounded-lg border-2 border-dashed border-gray-300 flex items-center justify-center">
+                    <button class="text-gray-500 hover:text-gray-700 flex flex-col items-center">
+                        <svg class="w-8 h-8 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                        </svg>
+                        <span class="text-sm">添加对比</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 热门对比推荐 -->
+            <div class="mb-6">
+                <h3 class="text-md font-medium text-gray-900 mb-3">🔥 热门对比推荐</h3>
+                <div class="flex flex-wrap gap-3">
+                    <button class="px-4 py-2 bg-finance-blue text-white rounded-full text-sm hover:bg-blue-700">
+                        经济危机对比：1929 vs 2008
+                    </button>
+                    <button class="px-4 py-2 bg-finance-red text-white rounded-full text-sm hover:bg-red-700">
+                        瘟疫影响：1348 vs 2020
+                    </button>
+                    <button class="px-4 py-2 bg-finance-green text-white rounded-full text-sm hover:bg-green-700">
+                        技术革命：1760 vs 1990
+                    </button>
+                    <button class="px-4 py-2 bg-finance-gold text-white rounded-full text-sm hover:bg-yellow-600">
+                        通胀时期：1970s vs 2020s
+                    </button>
+                </div>
+            </div>
+
+            <!-- 对比维度选择 -->
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-6">
+                    <span class="text-sm font-medium text-gray-700">对比维度：</span>
+                    <label class="flex items-center">
+                        <input type="checkbox" checked class="rounded border-gray-300 text-finance-blue focus:ring-finance-blue">
+                        <span class="ml-2 text-sm text-gray-700">经济表现</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" checked class="rounded border-gray-300 text-finance-blue focus:ring-finance-blue">
+                        <span class="ml-2 text-sm text-gray-700">政治环境</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" class="rounded border-gray-300 text-finance-blue focus:ring-finance-blue">
+                        <span class="ml-2 text-sm text-gray-700">外部冲击</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="checkbox" checked class="rounded border-gray-300 text-finance-blue focus:ring-finance-blue">
+                        <span class="ml-2 text-sm text-gray-700">资产价格</span>
+                    </label>
+                </div>
+                <div class="flex space-x-3">
+                    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-md text-sm hover:bg-gray-200">
+                        重置对比
+                    </button>
+                    <button class="px-4 py-2 bg-finance-blue text-white rounded-md text-sm hover:bg-blue-700">
+                        开始对比
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主对比内容区域 -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 对比标题 -->
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">1348年黑死病 vs 2008年金融危机</h2>
+            <p class="text-gray-600">跨越660年的历史对话：瘟疫与金融危机的异同分析</p>
+        </div>
+
+        <!-- 基本信息对比 -->
+        <div class="grid grid-cols-2 gap-8 mb-8">
+            <!-- 1348年 -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <div class="flex items-center mb-4">
+                    <div class="w-4 h-4 bg-blue-500 rounded-full mr-3"></div>
+                    <h3 class="text-lg font-semibold text-gray-900">1348年 - 黑死病</h3>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-blue-900 mb-2">危机性质</h4>
+                        <p class="text-blue-700 text-sm">公共卫生危机引发的经济社会全面崩溃</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <span class="text-gray-600">持续时间</span>
+                            <div class="font-medium">4年 (1347-1351)</div>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">影响范围</span>
+                            <div class="font-medium">欧洲、亚洲</div>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">人口损失</span>
+                            <div class="font-medium text-red-600">30-60%</div>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">经济损失</span>
+                            <div class="font-medium text-red-600">GDP -40%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2008年 -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <div class="flex items-center mb-4">
+                    <div class="w-4 h-4 bg-red-500 rounded-full mr-3"></div>
+                    <h3 class="text-lg font-semibold text-gray-900">2008年 - 金融危机</h3>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-red-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-red-900 mb-2">危机性质</h4>
+                        <p class="text-red-700 text-sm">金融体系崩溃引发的全球经济衰退</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <span class="text-gray-600">持续时间</span>
+                            <div class="font-medium">2年 (2007-2009)</div>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">影响范围</span>
+                            <div class="font-medium">全球</div>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">失业率</span>
+                            <div class="font-medium text-red-600">10.1%</div>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">经济损失</span>
+                            <div class="font-medium text-red-600">GDP -5.1%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 资产价格对比 -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
+            <h3 class="text-lg font-semibold text-gray-900 mb-6">资产价格表现对比</h3>
+            <div class="grid grid-cols-3 gap-6">
+                <!-- 房价对比 -->
+                <div class="text-center">
+                    <div class="mb-4">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-medium text-gray-900">房价变化</h4>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-blue-50 p-3 rounded">
+                            <div class="text-sm text-blue-900">1348年</div>
+                            <div class="text-lg font-bold text-blue-700">-70%</div>
+                            <div class="text-xs text-blue-600">人口锐减导致</div>
+                        </div>
+                        <div class="bg-red-50 p-3 rounded">
+                            <div class="text-sm text-red-900">2008年</div>
+                            <div class="text-lg font-bold text-red-700">-33%</div>
+                            <div class="text-xs text-red-600">次贷危机爆发</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 股市对比 -->
+                <div class="text-center">
+                    <div class="mb-4">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-medium text-gray-900">股市变化</h4>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-blue-50 p-3 rounded">
+                            <div class="text-sm text-blue-900">1348年</div>
+                            <div class="text-lg font-bold text-blue-700">N/A</div>
+                            <div class="text-xs text-blue-600">股市尚未出现</div>
+                        </div>
+                        <div class="bg-red-50 p-3 rounded">
+                            <div class="text-sm text-red-900">2008年</div>
+                            <div class="text-lg font-bold text-red-700">-57%</div>
+                            <div class="text-xs text-red-600">金融恐慌蔓延</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 黄金对比 -->
+                <div class="text-center">
+                    <div class="mb-4">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-2">
+                            <svg class="w-8 h-8 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h4 class="font-medium text-gray-900">黄金价格</h4>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-blue-50 p-3 rounded">
+                            <div class="text-sm text-blue-900">1348年</div>
+                            <div class="text-lg font-bold text-blue-700">+25%</div>
+                            <div class="text-xs text-blue-600">避险需求增加</div>
+                        </div>
+                        <div class="bg-red-50 p-3 rounded">
+                            <div class="text-sm text-red-900">2008年</div>
+                            <div class="text-lg font-bold text-red-700">+182%</div>
+                            <div class="text-xs text-red-600">避险情绪爆发</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 相似点与差异点 -->
+        <div class="grid grid-cols-2 gap-8 mb-8">
+            <!-- 相似点 -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                    <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center mr-3">
+                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    相似点
+                </h3>
+                <div class="space-y-4">
+                    <div class="border-l-4 border-green-400 pl-4">
+                        <h4 class="font-medium text-gray-900">危机传播模式</h4>
+                        <p class="text-gray-600 text-sm">都呈现快速传播、全面影响的特征</p>
+                    </div>
+                    <div class="border-l-4 border-green-400 pl-4">
+                        <h4 class="font-medium text-gray-900">避险资产表现</h4>
+                        <p class="text-gray-600 text-sm">黄金等贵金属价格都出现上涨</p>
+                    </div>
+                    <div class="border-l-4 border-green-400 pl-4">
+                        <h4 class="font-medium text-gray-900">社会结构冲击</h4>
+                        <p class="text-gray-600 text-sm">都对现有社会经济秩序造成重大冲击</p>
+                    </div>
+                    <div class="border-l-4 border-green-400 pl-4">
+                        <h4 class="font-medium text-gray-900">长期影响</h4>
+                        <p class="text-gray-600 text-sm">都推动了制度和技术的重大变革</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 差异点 -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                    <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center mr-3">
+                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    差异点
+                </h3>
+                <div class="space-y-4">
+                    <div class="border-l-4 border-orange-400 pl-4">
+                        <h4 class="font-medium text-gray-900">危机起源</h4>
+                        <p class="text-gray-600 text-sm">生物灾害 vs 金融系统性风险</p>
+                    </div>
+                    <div class="border-l-4 border-orange-400 pl-4">
+                        <h4 class="font-medium text-gray-900">政府应对能力</h4>
+                        <p class="text-gray-600 text-sm">中世纪政府几乎无力应对 vs 现代政府积极干预</p>
+                    </div>
+                    <div class="border-l-4 border-orange-400 pl-4">
+                        <h4 class="font-medium text-gray-900">恢复速度</h4>
+                        <p class="text-gray-600 text-sm">数十年缓慢恢复 vs 5-10年快速反弹</p>
+                    </div>
+                    <div class="border-l-4 border-orange-400 pl-4">
+                        <h4 class="font-medium text-gray-900">全球化程度</h4>
+                        <p class="text-gray-600 text-sm">区域性影响 vs 全球一体化传播</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 投资启示与现代应用 -->
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-6 mb-8">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">💡 投资启示与现代应用</h3>
+            <div class="grid grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-medium text-gray-900 mb-3">历史经验</h4>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex items-start">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            危机中黄金等避险资产表现稳定，是投资组合的重要组成部分
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            房地产在人口危机中受冲击最大，在金融危机中也难以幸免
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            危机往往催生新的制度和技术，带来长期投资机会
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium text-gray-900 mb-3">现代启示</h4>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li class="flex items-start">
+                            <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            建立多元化投资组合，包含不同类型的避险资产
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            关注政府政策响应能力，现代政府干预能力显著提升
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                            在危机中寻找结构性变化带来的新兴投资机会
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 操作按钮 -->
+        <div class="flex justify-center space-x-4">
+            <button class="px-6 py-3 bg-white border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50">
+                导出对比报告
+            </button>
+            <button class="px-6 py-3 bg-finance-blue text-white rounded-md hover:bg-blue-700">
+                保存对比结果
+            </button>
+            <button class="px-6 py-3 bg-finance-gold text-white rounded-md hover:bg-yellow-600">
+                分享对比链接
+            </button>
+        </div>
+    </div>
+    <script src="js/historical-data.js"></script>
+    <script src="js/comparison.js"></script>
+    <script src="js/interactions.js"></script>
+</body>
+</html>

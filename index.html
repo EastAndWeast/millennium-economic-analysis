@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>千年经济分析系统 - 穿越历史，洞察财富密码</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'finance-blue': '#1e40af',
+                        'finance-gold': '#f59e0b',
+                        'finance-green': '#059669',
+                        'finance-red': '#dc2626',
+                        'finance-gray': '#374151'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- 顶部导航栏 -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-finance-blue">千年经济分析</h1>
+                    </div>
+                    <nav class="hidden md:ml-8 md:flex md:space-x-8">
+                        <a href="index.html" class="text-finance-blue border-b-2 border-finance-blue px-1 pt-1 pb-4 text-sm font-medium">首页</a>
+                        <a href="历史分析页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">历史分析</a>
+                        <a href="经济因子页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">经济因子</a>
+                        <a href="分析结果页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">分析结果</a>
+                        <a href="年份对比页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">年份对比</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-finance-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
+                        用户中心
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold mb-6">
+                    穿越千年，洞察财富密码
+                </h1>
+                <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                    基于1000年历史数据的经济分析系统，揭示经济、政治、天灾、GDP对房价、股市、黄金的深层影响规律
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="历史分析页面.html" class="bg-finance-gold text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-yellow-600 transition-colors">
+                        开始分析
+                    </a>
+                    <a href="年份对比页面.html" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-white hover:text-blue-900 transition-colors">
+                        年份对比
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心功能介绍 -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">四大核心功能</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    通过先进的数据分析技术，为您提供全方位的历史经济洞察
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 历史分析 -->
+                <div class="text-center group cursor-pointer" onclick="window.location.href='历史分析页面.html'">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">历史分析</h3>
+                    <p class="text-gray-600 text-sm">深度解析1000年历史事件对经济的影响</p>
+                </div>
+
+                <!-- 经济因子 -->
+                <div class="text-center group cursor-pointer" onclick="window.location.href='经济因子页面.html'">
+                    <div class="w-20 h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">经济因子</h3>
+                    <p class="text-gray-600 text-sm">调节四大影响因子，模拟不同经济场景</p>
+                </div>
+
+                <!-- 分析结果 -->
+                <div class="text-center group cursor-pointer" onclick="window.location.href='分析结果页面.html'">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">分析结果</h3>
+                    <p class="text-gray-600 text-sm">查看房价、股市、黄金的详细分析报告</p>
+                </div>
+
+                <!-- 年份对比 -->
+                <div class="text-center group cursor-pointer" onclick="window.location.href='年份对比页面.html'">
+                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h4a1 1 0 010 2H6.414l2.293 2.293a1 1 0 01-1.414 1.414L5 6.414V8a1 1 0 01-2 0V4zm9 1a1 1 0 010-2h4a1 1 0 011 1v4a1 1 0 01-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L13.586 5H12zm-9 7a1 1 0 012 0v1.586l2.293-2.293a1 1 0 111.414 1.414L6.414 15H8a1 1 0 010 2H4a1 1 0 01-1-1v-4zm13-1a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 010-2h1.586l-2.293-2.293a1 1 0 111.414-1.414L15 13.586V12a1 1 0 011-1z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">年份对比</h3>
+                    <p class="text-gray-600 text-sm">对比不同历史时期，发现投资规律</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 数据亮点展示 -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">数据亮点</h2>
+                <p class="text-gray-600">基于权威历史数据，提供可信的分析结果</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-finance-blue mb-2">1000+</div>
+                    <div class="text-gray-600">年历史数据</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-finance-red mb-2">50+</div>
+                    <div class="text-gray-600">重大历史事件</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-finance-green mb-2">4</div>
+                    <div class="text-gray-600">核心影响因子</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-finance-gold mb-2">3</div>
+                    <div class="text-gray-600">资产类别分析</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 经典案例展示 -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">经典历史案例</h2>
+                <p class="text-gray-600">从历史中学习，为现在决策</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 1348年黑死病 -->
+                <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="window.location.href='年份对比页面.html'">
+                    <div class="text-2xl font-bold text-gray-900 mb-2">1348年</div>
+                    <div class="text-lg font-medium text-gray-700 mb-3">黑死病大流行</div>
+                    <div class="text-sm text-gray-600 mb-4">
+                        欧洲人口锐减1/3，房价暴跌70%，但推动了社会制度变革
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-red-600">房价 -70%</span>
+                        <span class="text-yellow-600">黄金 +25%</span>
+                    </div>
+                </div>
+
+                <!-- 1929年大萧条 -->
+                <div class="bg-gradient-to-br from-red-100 to-red-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="window.location.href='经济因子页面.html'">
+                    <div class="text-2xl font-bold text-gray-900 mb-2">1929年</div>
+                    <div class="text-lg font-medium text-gray-700 mb-3">美国大萧条</div>
+                    <div class="text-sm text-gray-600 mb-4">
+                        股市投机泡沫破裂，道琼斯指数暴跌89%，经济因子权重65%
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-red-600">股市 -89%</span>
+                        <span class="text-blue-600">房价 -30%</span>
+                    </div>
+                </div>
+
+                <!-- 2008年金融危机 -->
+                <div class="bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer" onclick="window.location.href='分析结果页面.html'">
+                    <div class="text-2xl font-bold text-gray-900 mb-2">2008年</div>
+                    <div class="text-lg font-medium text-gray-700 mb-3">全球金融危机</div>
+                    <div class="text-sm text-gray-600 mb-4">
+                        次贷危机引发全球金融海啸，黄金成为最佳避险资产
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-red-600">股市 -57%</span>
+                        <span class="text-yellow-600">黄金 +182%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部信息 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">千年经济分析</h3>
+                    <p class="text-gray-400 text-sm">
+                        基于历史数据的智能经济分析平台，为投资决策提供科学依据。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">核心功能</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="历史分析页面.html" class="hover:text-white">历史分析</a></li>
+                        <li><a href="经济因子页面.html" class="hover:text-white">经济因子</a></li>
+                        <li><a href="分析结果页面.html" class="hover:text-white">分析结果</a></li>
+                        <li><a href="年份对比页面.html" class="hover:text-white">年份对比</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">数据来源</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>历史文献资料</li>
+                        <li>官方统计数据</li>
+                        <li>学术研究报告</li>
+                        <li>金融市场数据</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-4">联系我们</h4>
+                    <div class="space-y-2 text-sm text-gray-400">
+                        <div>邮箱: info@millennium-analysis.com</div>
+                        <div>电话: +86 400-123-4567</div>
+                        <div>地址: 北京市朝阳区金融街</div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2024 千年经济分析系统. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/historical-data.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/interactions.js"></script>
+</body>
+</html>

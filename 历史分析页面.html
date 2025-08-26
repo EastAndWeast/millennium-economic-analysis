@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>历史分析 - 千年经济分析系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'finance-blue': '#1e40af',
+                        'finance-gold': '#f59e0b',
+                        'finance-green': '#059669',
+                        'finance-red': '#dc2626',
+                        'finance-gray': '#374151'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <script src="js/core.js"></script>
+    <!-- 顶部导航栏 -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-finance-blue">千年经济分析</h1>
+                    </div>
+                    <nav class="hidden md:ml-8 md:flex md:space-x-8">
+                        <a href="index.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">首页</a>
+                        <a href="历史分析页面.html" class="text-finance-blue border-b-2 border-finance-blue px-1 pt-1 pb-4 text-sm font-medium">历史分析</a>
+                        <a href="经济因子页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">经济因子</a>
+                        <a href="分析结果页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">分析结果</a>
+                        <a href="年份对比页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">年份对比</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-finance-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
+                        用户中心
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 时间轴控制器 -->
+    <div class="bg-white border-b border-gray-200 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <button class="text-finance-blue hover:text-blue-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="flex-1 max-w-md">
+                        <input type="range" min="1348" max="2008" value="1492" step="1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>1348年</span>
+                            <span class="font-medium text-finance-blue">1492年</span>
+                            <span>2008年</span>
+                        </div>
+                    </div>
+                    <button class="text-finance-blue hover:text-blue-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <select class="border border-gray-300 rounded-md px-3 py-2 text-sm">
+                        <option value="">快速年份选择</option>
+                        <option value="1348">1348年 - 黑死病大流行</option>
+                        <option value="1492">1492年 - 地理大发现</option>
+                        <option value="1929">1929年 - 美国大萧条</option>
+                        <option value="2008">2008年 - 全球金融危机</option>
+                    </select>
+                    <button class="bg-finance-gold text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-yellow-600">
+                        对比模式
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主内容区域 -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-12 gap-8">
+            <!-- 左侧历史分析面板 -->
+            <div class="col-span-4">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                    <h2 class="text-lg font-semibold text-gray-900 mb-4">1500年历史概况</h2>
+                    
+                    <!-- 重大历史事件 -->
+                    <div class="mb-6">
+                        <h3 class="text-md font-medium text-gray-700 mb-3 flex items-center">
+                            <div class="w-3 h-3 bg-finance-red rounded-full mr-2"></div>
+                            重大历史事件
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="border-l-4 border-finance-red pl-4 py-2 bg-red-50 rounded-r">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-medium text-gray-900">地理大发现</span>
+                                    <span class="text-xs text-gray-500">1492-1504</span>
+                                </div>
+                                <p class="text-xs text-gray-600 mt-1">哥伦布发现新大陆，开启全球贸易新时代</p>
+                            </div>
+                            <div class="border-l-4 border-finance-blue pl-4 py-2 bg-blue-50 rounded-r">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-medium text-gray-900">文艺复兴</span>
+                                    <span class="text-xs text-gray-500">1400-1600</span>
+                                </div>
+                                <p class="text-xs text-gray-600 mt-1">欧洲文化经济复苏，银行业兴起</p>
+                            </div>
+                            <div class="border-l-4 border-finance-green pl-4 py-2 bg-green-50 rounded-r">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-sm font-medium text-gray-900">印刷术传播</span>
+                                    <span class="text-xs text-gray-500">1450-1500</span>
+                                </div>
+                                <p class="text-xs text-gray-600 mt-1">信息传播革命，促进商业发展</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 事件分类筛选 -->
+                    <div class="mb-6">
+                        <h3 class="text-md font-medium text-gray-700 mb-3">事件分类</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="px-3 py-1 bg-finance-red text-white rounded-full text-xs hover:bg-red-700">
+                                政治变迁
+                            </button>
+                            <button class="px-3 py-1 bg-finance-blue text-white rounded-full text-xs hover:bg-blue-700">
+                                经济危机
+                            </button>
+                            <button class="px-3 py-1 bg-finance-gold text-white rounded-full text-xs hover:bg-yellow-600">
+                                自然灾害
+                            </button>
+                            <button class="px-3 py-1 bg-finance-green text-white rounded-full text-xs hover:bg-green-700">
+                                技术革命
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 影响程度指示器 -->
+                    <div>
+                        <h3 class="text-md font-medium text-gray-700 mb-3">当期影响程度</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600">经济影响</span>
+                                <div class="flex space-x-1">
+                                    <div class="w-3 h-3 bg-finance-blue rounded-full"></div>
+                                    <div class="w-3 h-3 bg-finance-blue rounded-full"></div>
+                                    <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600">政治影响</span>
+                                <div class="flex space-x-1">
+                                    <div class="w-3 h-3 bg-finance-red rounded-full"></div>
+                                    <div class="w-3 h-3 bg-finance-red rounded-full"></div>
+                                    <div class="w-3 h-3 bg-finance-red rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-sm text-gray-600">社会影响</span>
+                                <div class="flex space-x-1">
+                                    <div class="w-3 h-3 bg-finance-green rounded-full"></div>
+                                    <div class="w-3 h-3 bg-finance-green rounded-full"></div>
+                                    <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧详细分析区域 -->
+            <div class="col-span-8">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-semibold text-gray-900">1500年深度分析</h2>
+                        <div class="flex space-x-2">
+                            <button class="px-4 py-2 bg-finance-blue text-white rounded-md text-sm hover:bg-blue-700">
+                                导出报告
+                            </button>
+                            <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-md text-sm hover:bg-gray-50">
+                                添加对比
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 时代背景 -->
+                    <div class="mb-8">
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">时代背景</h3>
+                        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg">
+                            <p class="text-gray-700 leading-relaxed">
+                                1500年正值文艺复兴鼎盛时期，欧洲经济文化蓬勃发展。地理大发现开启了全球贸易新纪元，
+                                黄金白银大量流入欧洲，推动了商业革命和早期资本主义的发展。银行业在意大利兴起，
+                                美第奇家族等金融世家掌控着欧洲的金融命脉。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 关键指标 -->
+                    <div class="grid grid-cols-3 gap-6 mb-8">
+                        <div class="bg-gradient-to-br from-blue-500 to-blue-600 p-6 rounded-lg text-white">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-blue-100 text-sm">人口增长率</p>
+                                    <p class="text-2xl font-bold">+0.8%</p>
+                                </div>
+                                <div class="w-12 h-12 bg-blue-400 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-br from-green-500 to-green-600 p-6 rounded-lg text-white">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-green-100 text-sm">贸易增长</p>
+                                    <p class="text-2xl font-bold">+15%</p>
+                                </div>
+                                <div class="w-12 h-12 bg-green-400 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-br from-yellow-500 to-yellow-600 p-6 rounded-lg text-white">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-yellow-100 text-sm">通胀水平</p>
+                                    <p class="text-2xl font-bold">+2.1%</p>
+                                </div>
+                                <div class="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 历史事件时间线 -->
+                    <div>
+                        <h3 class="text-lg font-medium text-gray-900 mb-4">关键事件时间线</h3>
+                        <div class="relative">
+                            <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-300"></div>
+                            <div class="space-y-6">
+                                <div class="relative flex items-start">
+                                    <div class="absolute left-2 w-4 h-4 bg-finance-red rounded-full border-2 border-white"></div>
+                                    <div class="ml-10">
+                                        <div class="flex items-center space-x-2">
+                                            <span class="text-sm font-medium text-gray-900">1492年</span>
+                                            <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded-full">政治</span>
+                                        </div>
+                                        <p class="text-sm text-gray-600 mt-1">哥伦布发现美洲大陆，开启大航海时代</p>
+                                    </div>
+                                </div>
+                                <div class="relative flex items-start">
+                                    <div class="absolute left-2 w-4 h-4 bg-finance-blue rounded-full border-2 border-white"></div>
+                                    <div class="ml-10">
+                                        <div class="flex items-center space-x-2">
+                                            <span class="text-sm font-medium text-gray-900">1494年</span>
+                                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full">经济</span>
+                                        </div>
+                                        <p class="text-sm text-gray-600 mt-1">美第奇银行达到鼎盛，现代银行业雏形确立</p>
+                                    </div>
+                                </div>
+                                <div class="relative flex items-start">
+                                    <div class="absolute left-2 w-4 h-4 bg-finance-green rounded-full border-2 border-white"></div>
+                                    <div class="ml-10">
+                                        <div class="flex items-center space-x-2">
+                                            <span class="text-sm font-medium text-gray-900">1498年</span>
+                                            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">技术</span>
+                                        </div>
+                                        <p class="text-sm text-gray-600 mt-1">达·伽马绕过好望角，东西方贸易路线重构</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/historical-data.js"></script>
+    <script src="js/interactions.js"></script>
+</body>
+</html>

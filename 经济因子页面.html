@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>经济因子 - 千年经济分析系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'finance-blue': '#1e40af',
+                        'finance-gold': '#f59e0b',
+                        'finance-green': '#059669',
+                        'finance-red': '#dc2626',
+                        'finance-gray': '#374151'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <script src="js/core.js"></script>
+    <!-- 顶部导航栏 -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-finance-blue">千年经济分析</h1>
+                    </div>
+                    <nav class="hidden md:ml-8 md:flex md:space-x-8">
+                        <a href="index.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">首页</a>
+                        <a href="历史分析页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">历史分析</a>
+                        <a href="经济因子页面.html" class="text-finance-blue border-b-2 border-finance-blue px-1 pt-1 pb-4 text-sm font-medium">经济因子</a>
+                        <a href="分析结果页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">分析结果</a>
+                        <a href="年份对比页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">年份对比</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-finance-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
+                        用户中心
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 时间轴控制器 -->
+    <div class="bg-white border-b border-gray-200 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <button class="text-finance-blue hover:text-blue-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="flex-1 max-w-md">
+                        <input type="range" min="1024" max="2024" value="1929" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>1024年</span>
+                            <span class="font-medium text-finance-blue">1929年</span>
+                            <span>2024年</span>
+                        </div>
+                    </div>
+                    <button class="text-finance-blue hover:text-blue-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <select class="border border-gray-300 rounded-md px-3 py-2 text-sm">
+                        <option>1929年 - 大萧条</option>
+                        <option>1348年 - 黑死病</option>
+                        <option>1492年 - 地理大发现</option>
+                        <option>2008年 - 金融危机</option>
+                    </select>
+                    <button class="bg-finance-gold text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-yellow-600">
+                        对比模式
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主内容区域 -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 页面标题和说明 -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">1929年经济影响因子分析</h2>
+            <p class="text-gray-600">通过调整各项因子权重，分析不同因素对经济结果的影响程度</p>
+        </div>
+
+        <div class="grid grid-cols-12 gap-8">
+            <!-- 左侧因子控制面板 -->
+            <div class="col-span-4">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-6">影响因子权重设置</h3>
+                    
+                    <!-- 经济因子 -->
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-finance-blue rounded-full mr-3"></div>
+                                <span class="font-medium text-gray-900">经济因子</span>
+                            </div>
+                            <span class="text-lg font-bold text-finance-blue">65%</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="65" class="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer mb-4">
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">股市投机程度</span>
+                                <span class="font-medium">极高</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">信贷扩张</span>
+                                <span class="font-medium">过度</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">消费信心</span>
+                                <span class="font-medium">盲目乐观</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 政治因子 -->
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-finance-red rounded-full mr-3"></div>
+                                <span class="font-medium text-gray-900">政治因子</span>
+                            </div>
+                            <span class="text-lg font-bold text-finance-red">20%</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="20" class="w-full h-2 bg-red-200 rounded-lg appearance-none cursor-pointer mb-4">
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">监管政策</span>
+                                <span class="font-medium">宽松</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">政府干预</span>
+                                <span class="font-medium">最小化</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">国际关系</span>
+                                <span class="font-medium">相对稳定</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 天灾因子 -->
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-finance-gold rounded-full mr-3"></div>
+                                <span class="font-medium text-gray-900">天灾因子</span>
+                            </div>
+                            <span class="text-lg font-bold text-finance-gold">5%</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="5" class="w-full h-2 bg-yellow-200 rounded-lg appearance-none cursor-pointer mb-4">
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">自然灾害</span>
+                                <span class="font-medium">轻微</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">农业产出</span>
+                                <span class="font-medium">正常</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">疫病影响</span>
+                                <span class="font-medium">无</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GDP因子 -->
+                    <div class="mb-8">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-finance-green rounded-full mr-3"></div>
+                                <span class="font-medium text-gray-900">GDP因子</span>
+                            </div>
+                            <span class="text-lg font-bold text-finance-green">10%</span>
+                        </div>
+                        <input type="range" min="0" max="100" value="10" class="w-full h-2 bg-green-200 rounded-lg appearance-none cursor-pointer mb-4">
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">经济增长</span>
+                                <span class="font-medium">放缓</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">工业产出</span>
+                                <span class="font-medium">下降</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">就业水平</span>
+                                <span class="font-medium">恶化</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 重置和应用按钮 -->
+                    <div class="flex space-x-3">
+                        <button class="flex-1 bg-gray-100 text-gray-700 py-2 px-4 rounded-md text-sm font-medium hover:bg-gray-200">
+                            重置默认
+                        </button>
+                        <button class="flex-1 bg-finance-blue text-white py-2 px-4 rounded-md text-sm font-medium hover:bg-blue-700">
+                            应用设置
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧分析结果区域 -->
+            <div class="col-span-8">
+                <!-- 因子影响力可视化 -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">因子影响力分析</h3>
+                    <div class="grid grid-cols-2 gap-6">
+                        <!-- 饼图区域 -->
+                        <div class="flex items-center justify-center">
+                            <div class="relative w-48 h-48">
+                                <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                                    <!-- 经济因子 65% -->
+                                    <circle cx="50" cy="50" r="40" fill="none" stroke="#e5e7eb" stroke-width="20"/>
+                                    <circle cx="50" cy="50" r="40" fill="none" stroke="#1e40af" stroke-width="20" 
+                                            stroke-dasharray="163 251" stroke-linecap="round"/>
+                                    <!-- 政治因子 20% -->
+                                    <circle cx="50" cy="50" r="40" fill="none" stroke="#dc2626" stroke-width="20" 
+                                            stroke-dasharray="50 251" stroke-dashoffset="-163" stroke-linecap="round"/>
+                                    <!-- GDP因子 10% -->
+                                    <circle cx="50" cy="50" r="40" fill="none" stroke="#059669" stroke-width="20" 
+                                            stroke-dasharray="25 251" stroke-dashoffset="-213" stroke-linecap="round"/>
+                                    <!-- 天灾因子 5% -->
+                                    <circle cx="50" cy="50" r="40" fill="none" stroke="#f59e0b" stroke-width="20" 
+                                            stroke-dasharray="13 251" stroke-dashoffset="-238" stroke-linecap="round"/>
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="text-center">
+                                        <div class="text-2xl font-bold text-gray-900">1929</div>
+                                        <div class="text-sm text-gray-500">大萧条</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 图例 -->
+                        <div class="flex flex-col justify-center space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-finance-blue rounded mr-3"></div>
+                                <span class="text-sm text-gray-700">经济因子 (65%)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-finance-red rounded mr-3"></div>
+                                <span class="text-sm text-gray-700">政治因子 (20%)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-finance-green rounded mr-3"></div>
+                                <span class="text-sm text-gray-700">GDP因子 (10%)</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 bg-finance-gold rounded mr-3"></div>
+                                <span class="text-sm text-gray-700">天灾因子 (5%)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 因子详细分析 -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">因子详细分析</h3>
+                    <div class="space-y-6">
+                        <!-- 经济因子分析 -->
+                        <div class="border-l-4 border-finance-blue pl-6">
+                            <h4 class="font-medium text-gray-900 mb-2">经济因子 - 主导作用 (65%)</h4>
+                            <p class="text-gray-600 text-sm mb-3">
+                                1929年经济因子是导致大萧条的核心原因。股市过度投机、信贷无序扩张、
+                                消费者盲目乐观情绪共同推高了金融泡沫。
+                            </p>
+                            <div class="grid grid-cols-3 gap-4 text-sm">
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <div class="font-medium text-blue-900">股市投机</div>
+                                    <div class="text-blue-700">杠杆率达90%</div>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <div class="font-medium text-blue-900">信贷扩张</div>
+                                    <div class="text-blue-700">年增长25%</div>
+                                </div>
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <div class="font-medium text-blue-900">消费信心</div>
+                                    <div class="text-blue-700">历史最高点</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 政治因子分析 -->
+                        <div class="border-l-4 border-finance-red pl-6">
+                            <h4 class="font-medium text-gray-900 mb-2">政治因子 - 推波助澜 (20%)</h4>
+                            <p class="text-gray-600 text-sm mb-3">
+                                政府的自由放任政策和监管缺失为经济泡沫提供了土壤。
+                                缺乏有效的金融监管体系是危机爆发的重要推手。
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div class="bg-red-50 p-3 rounded">
+                                    <div class="font-medium text-red-900">监管政策</div>
+                                    <div class="text-red-700">极度宽松</div>
+                                </div>
+                                <div class="bg-red-50 p-3 rounded">
+                                    <div class="font-medium text-red-900">政府干预</div>
+                                    <div class="text-red-700">几乎为零</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 假设分析 -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">假设分析</h3>
+                    <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-medium text-gray-900 mb-2">如果政治因子权重提升至40%会如何？</h4>
+                        <p class="text-gray-600 text-sm">
+                            假设当时政府实施更严格的金融监管，限制投机行为，大萧条的严重程度可能会降低60%，
+                            恢复时间也会从10年缩短至4-5年。
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4">
+                        <button class="p-3 border border-gray-300 rounded-lg text-sm hover:bg-gray-50">
+                            <div class="font-medium">强化监管</div>
+                            <div class="text-gray-500">政治+20%</div>
+                        </button>
+                        <button class="p-3 border border-gray-300 rounded-lg text-sm hover:bg-gray-50">
+                            <div class="font-medium">经济干预</div>
+                            <div class="text-gray-500">GDP+15%</div>
+                        </button>
+                        <button class="p-3 border border-gray-300 rounded-lg text-sm hover:bg-gray-50">
+                            <div class="font-medium">外部冲击</div>
+                            <div class="text-gray-500">天灾+10%</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/historical-data.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/interactions.js"></script>
+</body>
+</html>

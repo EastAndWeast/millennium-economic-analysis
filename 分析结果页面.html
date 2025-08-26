@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分析结果 - 千年经济分析系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'finance-blue': '#1e40af',
+                        'finance-gold': '#f59e0b',
+                        'finance-green': '#059669',
+                        'finance-red': '#dc2626',
+                        'finance-gray': '#374151'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <script src="js/core.js"></script>
+    <!-- 顶部导航栏 -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-finance-blue">千年经济分析</h1>
+                    </div>
+                    <nav class="hidden md:ml-8 md:flex md:space-x-8">
+                        <a href="index.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">首页</a>
+                        <a href="历史分析页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">历史分析</a>
+                        <a href="经济因子页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">经济因子</a>
+                        <a href="分析结果页面.html" class="text-finance-blue border-b-2 border-finance-blue px-1 pt-1 pb-4 text-sm font-medium">分析结果</a>
+                        <a href="年份对比页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">年份对比</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-finance-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
+                        用户中心
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 时间轴控制器 -->
+    <div class="bg-white border-b border-gray-200 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <button class="text-finance-blue hover:text-blue-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="flex-1 max-w-md">
+                        <input type="range" min="1024" max="2024" value="2008" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>1024年</span>
+                            <span class="font-medium text-finance-blue">2008年</span>
+                            <span>2024年</span>
+                        </div>
+                    </div>
+                    <button class="text-finance-blue hover:text-blue-700">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <select class="border border-gray-300 rounded-md px-3 py-2 text-sm">
+                        <option>2008年 - 金融危机</option>
+                        <option>1929年 - 大萧条</option>
+                        <option>1348年 - 黑死病</option>
+                        <option>1492年 - 地理大发现</option>
+                    </select>
+                    <button class="bg-finance-gold text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-yellow-600">
+                        对比模式
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主内容区域 -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 页面标题 -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">2008年金融危机 - 资产价格分析</h2>
+            <p class="text-gray-600">深度解析房价、股市、黄金在金融危机中的表现及其背后逻辑</p>
+        </div>
+
+        <!-- 三大资产概览卡片 -->
+        <div class="grid grid-cols-3 gap-6 mb-8">
+            <!-- 房价卡片 -->
+            <div class="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-6 text-white">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-400 rounded-lg flex items-center justify-center mr-3">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold">房价指数</h3>
+                            <p class="text-blue-100 text-sm">Case-Shiller指数</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-2xl font-bold">-33%</div>
+                        <div class="text-blue-100 text-sm">2006-2012</div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-blue-100 text-sm">峰值: 206.52 (2006)</span>
+                    <span class="text-blue-100 text-sm">谷底: 138.07 (2012)</span>
+                </div>
+                <div class="mt-4 h-16 bg-blue-400 rounded flex items-end justify-between px-1">
+                    <div class="w-2 bg-blue-200 rounded-t" style="height: 80%"></div>
+                    <div class="w-2 bg-blue-200 rounded-t" style="height: 90%"></div>
+                    <div class="w-2 bg-white rounded-t" style="height: 100%"></div>
+                    <div class="w-2 bg-blue-200 rounded-t" style="height: 70%"></div>
+                    <div class="w-2 bg-blue-200 rounded-t" style="height: 50%"></div>
+                    <div class="w-2 bg-blue-200 rounded-t" style="height: 45%"></div>
+                    <div class="w-2 bg-blue-200 rounded-t" style="height: 55%"></div>
+                </div>
+            </div>
+
+            <!-- 股市卡片 -->
+            <div class="bg-gradient-to-br from-red-500 to-red-600 rounded-lg p-6 text-white">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-red-400 rounded-lg flex items-center justify-center mr-3">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold">股市指数</h3>
+                            <p class="text-red-100 text-sm">标普500指数</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-2xl font-bold">-57%</div>
+                        <div class="text-red-100 text-sm">2007-2009</div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-red-100 text-sm">峰值: 1565 (2007)</span>
+                    <span class="text-red-100 text-sm">谷底: 676 (2009)</span>
+                </div>
+                <div class="mt-4 h-16 bg-red-400 rounded flex items-end justify-between px-1">
+                    <div class="w-2 bg-red-200 rounded-t" style="height: 85%"></div>
+                    <div class="w-2 bg-white rounded-t" style="height: 100%"></div>
+                    <div class="w-2 bg-red-200 rounded-t" style="height: 80%"></div>
+                    <div class="w-2 bg-red-200 rounded-t" style="height: 60%"></div>
+                    <div class="w-2 bg-red-200 rounded-t" style="height: 43%"></div>
+                    <div class="w-2 bg-red-200 rounded-t" style="height: 50%"></div>
+                    <div class="w-2 bg-red-200 rounded-t" style="height: 70%"></div>
+                </div>
+            </div>
+
+            <!-- 黄金卡片 -->
+            <div class="bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg p-6 text-white">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-yellow-400 rounded-lg flex items-center justify-center mr-3">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold">黄金价格</h3>
+                            <p class="text-yellow-100 text-sm">美元/盎司</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-2xl font-bold">+182%</div>
+                        <div class="text-yellow-100 text-sm">2008-2011</div>
+                    </div>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-yellow-100 text-sm">起点: $680 (2008)</span>
+                    <span class="text-yellow-100 text-sm">峰值: $1920 (2011)</span>
+                </div>
+                <div class="mt-4 h-16 bg-yellow-400 rounded flex items-end justify-between px-1">
+                    <div class="w-2 bg-yellow-200 rounded-t" style="height: 35%"></div>
+                    <div class="w-2 bg-yellow-200 rounded-t" style="height: 40%"></div>
+                    <div class="w-2 bg-yellow-200 rounded-t" style="height: 55%"></div>
+                    <div class="w-2 bg-yellow-200 rounded-t" style="height: 70%"></div>
+                    <div class="w-2 bg-yellow-200 rounded-t" style="height: 85%"></div>
+                    <div class="w-2 bg-white rounded-t" style="height: 100%"></div>
+                    <div class="w-2 bg-yellow-200 rounded-t" style="height: 95%"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-8">
+            <!-- 左侧详细分析 -->
+            <div class="col-span-8">
+                <!-- 综合趋势图表 -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-gray-900">2008年金融危机资产价格走势</h3>
+                        <div class="flex space-x-2">
+                            <button class="px-3 py-1 bg-finance-blue text-white rounded text-sm">全部</button>
+                            <button class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm">房价</button>
+                            <button class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm">股市</button>
+                            <button class="px-3 py-1 bg-gray-100 text-gray-700 rounded text-sm">黄金</button>
+                        </div>
+                    </div>
+                    <div class="h-80 bg-gray-50 rounded-lg p-4">
+                        <canvas id="priceChart" width="600" height="300" class="w-full h-full"></canvas>
+                    </div>
+                </div>
+
+                <!-- 深度分析 -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-6">深度分析解读</h3>
+                    
+                    <!-- 房价分析 -->
+                    <div class="mb-8">
+                        <div class="flex items-center mb-4">
+                            <div class="w-6 h-6 bg-finance-blue rounded mr-3"></div>
+                            <h4 class="text-md font-medium text-gray-900">房价暴跌：次贷危机的直接受害者</h4>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                房地产市场是此次危机的震中。从2006年开始，美国房价持续下跌，累计跌幅达33%。
+                                次级抵押贷款违约率飙升，引发连锁反应，最终导致全球金融体系崩溃。
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-sm">
+                            <div class="bg-white border border-blue-200 p-3 rounded">
+                                <div class="font-medium text-blue-900">影响因子</div>
+                                <div class="text-blue-700">经济因子 70%</div>
+                                <div class="text-gray-600">次贷危机爆发</div>
+                            </div>
+                            <div class="bg-white border border-blue-200 p-3 rounded">
+                                <div class="font-medium text-blue-900">政策响应</div>
+                                <div class="text-blue-700">政治因子 20%</div>
+                                <div class="text-gray-600">救市政策滞后</div>
+                            </div>
+                            <div class="bg-white border border-blue-200 p-3 rounded">
+                                <div class="font-medium text-blue-900">恢复周期</div>
+                                <div class="text-blue-700">6年</div>
+                                <div class="text-gray-600">2012年触底反弹</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 股市分析 -->
+                    <div class="mb-8">
+                        <div class="flex items-center mb-4">
+                            <div class="w-6 h-6 bg-finance-red rounded mr-3"></div>
+                            <h4 class="text-md font-medium text-gray-900">股市崩盘：金融恐慌的放大器</h4>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg mb-4">
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                标普500指数从2007年10月的1565点暴跌至2009年3月的676点，跌幅达57%。
+                                金融股首当其冲，雷曼兄弟破产成为危机的标志性事件。
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-sm">
+                            <div class="bg-white border border-red-200 p-3 rounded">
+                                <div class="font-medium text-red-900">最大跌幅</div>
+                                <div class="text-red-700">-57%</div>
+                                <div class="text-gray-600">18个月内</div>
+                            </div>
+                            <div class="bg-white border border-red-200 p-3 rounded">
+                                <div class="font-medium text-red-900">波动率</div>
+                                <div class="text-red-700">VIX 80+</div>
+                                <div class="text-gray-600">极度恐慌</div>
+                            </div>
+                            <div class="bg-white border border-red-200 p-3 rounded">
+                                <div class="font-medium text-red-900">恢复时间</div>
+                                <div class="text-red-700">5年</div>
+                                <div class="text-gray-600">2013年创新高</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 黄金分析 -->
+                    <div>
+                        <div class="flex items-center mb-4">
+                            <div class="w-6 h-6 bg-finance-gold rounded mr-3"></div>
+                            <h4 class="text-md font-medium text-gray-900">黄金飙升：避险情绪的完美体现</h4>
+                        </div>
+                        <div class="bg-yellow-50 p-4 rounded-lg mb-4">
+                            <p class="text-gray-700 text-sm leading-relaxed">
+                                在全球金融体系动荡中，黄金展现了其避险资产的本色。从2008年的680美元/盎司
+                                一路飙升至2011年的1920美元/盎司，涨幅达182%。
+                            </p>
+                        </div>
+                        <div class="grid grid-cols-3 gap-4 text-sm">
+                            <div class="bg-white border border-yellow-200 p-3 rounded">
+                                <div class="font-medium text-yellow-900">避险需求</div>
+                                <div class="text-yellow-700">极度强烈</div>
+                                <div class="text-gray-600">美元信心动摇</div>
+                            </div>
+                            <div class="bg-white border border-yellow-200 p-3 rounded">
+                                <div class="font-medium text-yellow-900">央行购买</div>
+                                <div class="text-yellow-700">大幅增加</div>
+                                <div class="text-gray-600">储备多元化</div>
+                            </div>
+                            <div class="bg-white border border-yellow-200 p-3 rounded">
+                                <div class="font-medium text-yellow-900">投资需求</div>
+                                <div class="text-yellow-700">历史新高</div>
+                                <div class="text-gray-600">ETF大量流入</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧相关信息 -->
+            <div class="col-span-4">
+                <!-- 关键事件时间线 -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">关键事件时间线</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-3 h-3 bg-finance-red rounded-full mt-1 mr-3"></div>
+                            <div>
+                                <div class="text-sm font-medium text-gray-900">2007年8月</div>
+                                <div class="text-xs text-gray-600">次贷危机爆发</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-3 h-3 bg-finance-red rounded-full mt-1 mr-3"></div>
+                            <div>
+                                <div class="text-sm font-medium text-gray-900">2008年9月</div>
+                                <div class="text-xs text-gray-600">雷曼兄弟破产</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-3 h-3 bg-finance-blue rounded-full mt-1 mr-3"></div>
+                            <div>
+                                <div class="text-sm font-medium text-gray-900">2008年10月</div>
+                                <div class="text-xs text-gray-600">TARP救助计划</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-3 h-3 bg-finance-green rounded-full mt-1 mr-3"></div>
+                            <div>
+                                <div class="text-sm font-medium text-gray-900">2009年3月</div>
+                                <div class="text-xs text-gray-600">股市触底反弹</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 投资启示 -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">投资启示</h3>
+                    <div class="space-y-4">
+                        <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-4 rounded-lg">
+                            <div class="font-medium text-blue-900 mb-2">分散投资</div>
+                            <div class="text-blue-700 text-sm">不要把鸡蛋放在一个篮子里，危机中黄金表现优异</div>
+                        </div>
+                        <div class="bg-gradient-to-r from-green-50 to-green-100 p-4 rounded-lg">
+                            <div class="font-medium text-green-900 mb-2">逆向投资</div>
+                            <div class="text-green-700 text-sm">在恐慌中买入优质资产，长期回报丰厚</div>
+                        </div>
+                        <div class="bg-gradient-to-r from-yellow-50 to-yellow-100 p-4 rounded-lg">
+                            <div class="font-medium text-yellow-900 mb-2">风险管理</div>
+                            <div class="text-yellow-700 text-sm">保持适当现金储备，应对流动性危机</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 相似历史事件 -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">相似历史事件</h3>
+                    <div class="space-y-3">
+                        <div class="p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+                            <div class="font-medium text-gray-900 text-sm">1929年大萧条</div>
+                            <div class="text-gray-600 text-xs">相似度: 85%</div>
+                        </div>
+                        <div class="p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+                            <div class="font-medium text-gray-900 text-sm">1997年亚洲金融危机</div>
+                            <div class="text-gray-600 text-xs">相似度: 72%</div>
+                        </div>
+                        <div class="p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer">
+                            <div class="font-medium text-gray-900 text-sm">2020年疫情冲击</div>
+                            <div class="text-gray-600 text-xs">相似度: 68%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/historical-data.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/interactions.js"></script>
+</body>
+</html>

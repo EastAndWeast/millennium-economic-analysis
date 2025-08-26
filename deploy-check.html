@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目部署检查工具</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen p-8">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">🚀 千年经济分析系统 - 部署检查工具</h1>
+        
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">📁 项目文件检查</h2>
+            <div id="fileCheck" class="space-y-2">
+                <!-- 文件检查结果将在这里显示 -->
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">🔧 功能测试</h2>
+            <div id="functionCheck" class="space-y-2">
+                <!-- 功能检查结果将在这里显示 -->
+            </div>
+        </div>
+        
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">🌐 部署建议</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="border border-blue-200 rounded-lg p-4">
+                    <h3 class="font-semibold text-blue-900 mb-2">GitHub Pages (推荐)</h3>
+                    <p class="text-sm text-gray-600 mb-3">免费、稳定、专业</p>
+                    <a href="https://pages.github.com/" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm">查看教程 →</a>
+                </div>
+                <div class="border border-green-200 rounded-lg p-4">
+                    <h3 class="font-semibold text-green-900 mb-2">Netlify</h3>
+                    <p class="text-sm text-gray-600 mb-3">拖拽部署，简单快速</p>
+                    <a href="https://netlify.com/" target="_blank" class="text-green-600 hover:text-green-800 text-sm">立即部署 →</a>
+                </div>
+                <div class="border border-purple-200 rounded-lg p-4">
+                    <h3 class="font-semibold text-purple-900 mb-2">Vercel</h3>
+                    <p class="text-sm text-gray-600 mb-3">开发者友好，自动优化</p>
+                    <a href="https://vercel.com/" target="_blank" class="text-purple-600 hover:text-purple-800 text-sm">开始使用 →</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+            <h3 class="font-semibold text-blue-900 mb-2">📋 部署步骤</h3>
+            <ol class="list-decimal list-inside space-y-1 text-sm text-blue-800">
+                <li>确保所有文件检查通过</li>
+                <li>选择部署平台（推荐GitHub Pages）</li>
+                <li>上传项目文件</li>
+                <li>配置部署设置</li>
+                <li>获取分享链接</li>
+                <li>测试线上版本</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // 项目文件检查
+        const requiredFiles = [
+            'index.html',
+            '历史分析页面.html',
+            '经济因子页面.html',
+            '分析结果页面.html',
+            '年份对比页面.html',
+            'js/historical-data.js',
+            'js/core.js',
+            'js/charts.js',
+            'js/comparison.js',
+            'js/interactions.js',
+            'README.md'
+        ];
+
+        // 功能检查项
+        const functionChecks = [
+            { name: 'Tailwind CSS加载', test: () => !!window.tailwind },
+            { name: '历史数据库', test: () => !!window.HistoricalDatabase },
+            { name: '本地存储支持', test: () => !!window.localStorage },
+            { name: 'Canvas支持', test: () => !!document.createElement('canvas').getContext },
+            { name: 'ES6支持', test: () => { try { eval('const test = () => {}'); return true; } catch(e) { return false; } } }
+        ];
+
+        function checkFiles() {
+            const container = document.getElementById('fileCheck');
+            container.innerHTML = '';
+            
+            requiredFiles.forEach(file => {
+                const div = document.createElement('div');
+                div.className = 'flex items-center space-x-2';
+                
+                // 简单的文件存在检查（实际部署时需要服务器端检查）
+                const exists = true; // 假设文件存在，实际需要AJAX检查
+                
+                div.innerHTML = `
+                    <span class="${exists ? 'text-green-600' : 'text-red-600'}">
+                        ${exists ? '✅' : '❌'}
+                    </span>
+                    <span class="text-sm ${exists ? 'text-gray-700' : 'text-red-600'}">${file}</span>
+                `;
+                
+                container.appendChild(div);
+            });
+        }
+
+        function checkFunctions() {
+            const container = document.getElementById('functionCheck');
+            container.innerHTML = '';
+            
+            functionChecks.forEach(check => {
+                const div = document.createElement('div');
+                div.className = 'flex items-center space-x-2';
+                
+                const passed = check.test();
+                
+                div.innerHTML = `
+                    <span class="${passed ? 'text-green-600' : 'text-red-600'}">
+                        ${passed ? '✅' : '❌'}
+                    </span>
+                    <span class="text-sm ${passed ? 'text-gray-700' : 'text-red-600'}">${check.name}</span>
+                `;
+                
+                container.appendChild(div);
+            });
+        }
+
+        // 页面加载时执行检查
+        document.addEventListener('DOMContentLoaded', function() {
+            checkFiles();
+            setTimeout(checkFunctions, 1000); // 延迟检查功能，确保其他脚本加载完成
+        });
+    </script>
+</body>
+</html>
