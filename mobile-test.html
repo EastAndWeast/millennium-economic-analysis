@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动端功能测试 - 千年经济分析系统</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/mobile-responsive.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'finance-blue': '#1e40af',
+                        'finance-gold': '#f59e0b',
+                        'finance-green': '#059669',
+                        'finance-red': '#dc2626',
+                        'finance-gray': '#374151'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- 顶部导航栏 -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-finance-blue">移动端测试</h1>
+                    </div>
+                    <nav class="hidden md:ml-8 md:flex md:space-x-8">
+                        <a href="index.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">首页</a>
+                        <a href="历史分析页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">历史分析</a>
+                        <a href="经济因子页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">经济因子</a>
+                        <a href="分析结果页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">分析结果</a>
+                        <a href="年份对比页面.html" class="text-gray-500 hover:text-gray-700 px-1 pt-1 pb-4 text-sm font-medium">年份对比</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-finance-blue text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700">
+                        测试中心
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 测试说明 -->
+    <div class="bg-blue-50 border-b border-blue-200 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center">
+                <div class="flex-shrink-0">
+                    <svg class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <div class="ml-3">
+                    <p class="text-sm text-blue-700">
+                        <strong>移动端功能测试页面</strong> - 测试数据导出、触摸交互、响应式布局等功能
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主内容区域 -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- 功能测试区域 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- 数据导出测试 -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">📊 数据导出功能测试</h3>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-900 mb-2">测试数据</h4>
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b">
+                                    <th class="text-left py-2">年份</th>
+                                    <th class="text-left py-2">房价</th>
+                                    <th class="text-left py-2">股市</th>
+                                    <th class="text-left py-2">黄金</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="py-2">2008</td>
+                                    <td class="py-2">100</td>
+                                    <td class="py-2">100</td>
+                                    <td class="py-2">100</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="py-2">2009</td>
+                                    <td class="py-2">85</td>
+                                    <td class="py-2">65</td>
+                                    <td class="py-2">120</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2">2010</td>
+                                    <td class="py-2">90</td>
+                                    <td class="py-2">85</td>
+                                    <td class="py-2">115</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        <p>✅ 测试项目：</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1">
+                            <li>JSON格式导出</li>
+                            <li>CSV格式导出</li>
+                            <li>Excel格式导出</li>
+                            <li>图片格式导出</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 图表交互测试 -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">📈 图表交互测试</h3>
+                <div class="space-y-4">
+                    <div class="h-64 bg-gray-50 rounded-lg p-4 chart-container">
+                        <canvas id="testChart" width="400" height="200" class="w-full h-full"></canvas>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        <p>🎯 交互测试：</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1">
+                            <li>左右滑动切换图表类型</li>
+                            <li>双指缩放图表</li>
+                            <li>触摸显示数据点</li>
+                            <li>长按显示操作菜单</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 移动端导航测试 -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">📱 移动端导航测试</h3>
+                <div class="space-y-4">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-medium text-gray-900 mb-2">汉堡菜单</h4>
+                        <p class="text-sm text-gray-600">在移动端设备上，顶部导航会自动切换为汉堡菜单</p>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        <p>📋 测试项目：</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1">
+                            <li>汉堡菜单显示/隐藏</li>
+                            <li>菜单项点击跳转</li>
+                            <li>点击外部关闭菜单</li>
+                            <li>页面滑动导航</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 因子控制器测试 -->
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">🎛️ 因子控制器测试</h3>
+                <div class="space-y-4">
+                    <div class="factor-controls">
+                        <div class="factor-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">经济因子</label>
+                            <input type="range" min="0" max="100" value="65" class="factor-slider w-full">
+                            <div class="text-sm text-gray-600 mt-1">当前值: 65%</div>
+                        </div>
+                        <div class="factor-item">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">政治因子</label>
+                            <input type="range" min="0" max="100" value="20" class="factor-slider w-full">
+                            <div class="text-sm text-gray-600 mt-1">当前值: 20%</div>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-600">
+                        <p>🔧 测试项目：</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1">
+                            <li>滑块触摸响应</li>
+                            <li>震动反馈（支持设备）</li>
+                            <li>实时数值更新</li>
+                            <li>触摸区域大小</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 响应式测试说明 -->
+        <div class="mt-8 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">📐 响应式布局测试</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="font-medium text-gray-900">桌面端</h4>
+                    <p class="text-sm text-gray-600 mt-1">≥ 1024px</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="font-medium text-gray-900">平板端</h4>
+                    <p class="text-sm text-gray-600 mt-1">768px - 1023px</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                        <svg class="w-6 h-6 text-yellow-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M7 2a2 2 0 00-2 2v12a2 2 0 002 2h6a2 2 0 002-2V4a2 2 0 00-2-2H7zM6 4a1 1 0 011-1h6a1 1 0 011 1v12a1 1 0 01-1 1H7a1 1 0 01-1-1V4z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="font-medium text-gray-900">移动端</h4>
+                    <p class="text-sm text-gray-600 mt-1">≤ 767px</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 测试结果显示区域 -->
+        <div class="mt-8 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">📊 测试结果</h3>
+            <div id="testResults" class="space-y-2 text-sm">
+                <div class="text-gray-600">等待测试结果...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 加载JavaScript模块 -->
+    <script src="js/historical-data.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/comparison.js"></script>
+    <script src="js/interactions.js"></script>
+    <script src="js/data-export.js"></script>
+    <script src="js/mobile-interactions.js"></script>
+
+    <!-- 测试脚本 -->
+    <script>
+        // 测试功能初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            const testResults = document.getElementById('testResults');
+            const results = [];
+
+            // 测试1: 检查移动端检测
+            const isMobile = window.mobileInteractionManager?.isMobile;
+            results.push(`✅ 移动端检测: ${isMobile ? '是' : '否'} (屏幕宽度: ${window.innerWidth}px)`);
+
+            // 测试2: 检查数据导出管理器
+            const hasExportManager = !!window.dataExportManager;
+            results.push(`${hasExportManager ? '✅' : '❌'} 数据导出管理器: ${hasExportManager ? '已加载' : '未加载'}`);
+
+            // 测试3: 检查图表管理器
+            const hasChartManager = !!window.chartManager;
+            results.push(`${hasChartManager ? '✅' : '❌'} 图表管理器: ${hasChartManager ? '已加载' : '未加载'}`);
+
+            // 测试4: 检查CSS加载
+            const mobileCSS = document.querySelector('link[href="css/mobile-responsive.css"]');
+            results.push(`${mobileCSS ? '✅' : '❌'} 移动端CSS: ${mobileCSS ? '已加载' : '未加载'}`);
+
+            // 测试5: 检查触摸支持
+            const hasTouch = 'ontouchstart' in window;
+            results.push(`${hasTouch ? '✅' : '❌'} 触摸支持: ${hasTouch ? '支持' : '不支持'}`);
+
+            // 显示测试结果
+            testResults.innerHTML = results.map(result => `<div>${result}</div>`).join('');
+
+            // 初始化测试图表
+            setTimeout(() => {
+                if (window.chartManager) {
+                    const canvas = document.getElementById('testChart');
+                    if (canvas) {
+                        const ctx = canvas.getContext('2d');
+                        const testData = {
+                            labels: ['2008', '2009', '2010', '2011', '2012'],
+                            housing: [100, 85, 90, 95, 105],
+                            stock: [100, 65, 85, 110, 120],
+                            gold: [100, 120, 115, 110, 105]
+                        };
+                        window.chartManager.drawLineChart(ctx, canvas, testData);
+                    }
+                }
+            }, 1000);
+        });
+
+        // 添加滑块事件监听
+        document.querySelectorAll('.factor-slider').forEach(slider => {
+            slider.addEventListener('input', function() {
+                const valueDisplay = this.parentElement.querySelector('.text-gray-600');
+                valueDisplay.textContent = `当前值: ${this.value}%`;
+            });
+        });
+    </script>
+</body>
+</html>

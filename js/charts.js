@@ -6,6 +6,8 @@ class ChartManager {
     constructor() {
         this.charts = {};
         this.chartData = this.generateChartData();
+        this.currentChartType = 'all'; // 当前显示的图表类型
+        this.chartTypes = ['all', 'housing', 'stock', 'gold']; // 可切换的图表类型
         this.init();
     }
 
@@ -100,12 +102,16 @@ class ChartManager {
         // 绘制网格
         this.drawGrid(ctx, padding, chartWidth, chartHeight);
         
-        // 绘制数据线
-        this.drawDataLine(ctx, data.housing, '#1e40af', padding, chartWidth, chartHeight, '房价');
-        if (data.stock.some(v => v > 0)) {
+        // 根据当前图表类型绘制数据线
+        if (this.currentChartType === 'all' || this.currentChartType === 'housing') {
+            this.drawDataLine(ctx, data.housing, '#1e40af', padding, chartWidth, chartHeight, '房价');
+        }
+        if ((this.currentChartType === 'all' || this.currentChartType === 'stock') && data.stock.some(v => v > 0)) {
             this.drawDataLine(ctx, data.stock, '#dc2626', padding, chartWidth, chartHeight, '股市');
         }
-        this.drawDataLine(ctx, data.gold, '#f59e0b', padding, chartWidth, chartHeight, '黄金');
+        if (this.currentChartType === 'all' || this.currentChartType === 'gold') {
+            this.drawDataLine(ctx, data.gold, '#f59e0b', padding, chartWidth, chartHeight, '黄金');
+        }
         
         // 绘制图例
         this.drawLegend(ctx, width, height, data);
@@ -339,12 +345,45 @@ class ChartManager {
             const data = this.chartData[year] || this.chartData[2008];
             this.drawLineChart(this.charts.priceChart.ctx, this.charts.priceChart.canvas, data);
         }
-        
+
         // 更新饼图
         this.initFactorPieChart();
-        
+
         // 更新迷你图表
         this.initMiniCharts();
+    }
+
+    // 切换图表类型（用于移动端滑动）
+    switchChartType(reverse = false) {
+        const currentIndex = this.chartTypes.indexOf(this.currentChartType);
+        let nextIndex;
+
+        if (reverse) {
+            nextIndex = currentIndex === 0 ? this.chartTypes.length - 1 : currentIndex - 1;
+        } else {
+            nextIndex = (currentIndex + 1) % this.chartTypes.length;
+        }
+
+        this.currentChartType = this.chartTypes[nextIndex];
+        this.updatePriceChart(window.AppData?.currentYear || 2008);
+
+        // 显示切换提示
+        if (window.FeedbackSystem) {
+            const typeNames = {
+                'all': '全部数据',
+                'housing': '房价数据',
+                'stock': '股市数据',
+                'gold': '黄金数据'
+            };
+            window.FeedbackSystem.showInfo(`切换到: ${typeNames[this.currentChartType]}`);
+        }
+    }
+
+    updatePriceChart(year) {
+        if (this.charts.priceChart) {
+            const data = this.chartData[year] || this.chartData[2008];
+            this.drawLineChart(this.charts.priceChart.ctx, this.charts.priceChart.canvas, data);
+        }
     }
     
     // 图表切换功能
